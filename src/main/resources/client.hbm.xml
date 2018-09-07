@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 5.3//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-5.3.dtd">
+  
+ <hibernate-mapping>
+  <class name="com.ideas2it.employeedetails.client.model.Client" table="clients">
+    <id name="id" column = "id">
+     <generator class="increment"/>
+    </id>
+    <property name="name" column="name"/>
+    <property name ="email" column="email"/>
+    <property name="companyName" column="companyname"/>
+    <property name="active" column="active" type="boolean"/>
+    <bag name="projects"  fetch="select" lazy="false">
+        <key column="clientid" not-null="false"/>
+        <one-to-many class="com.ideas2it.employeedetails.project.model.Project"/>
+    </bag>
+    <bag name="addresses" cascade="all" fetch="select" lazy="false">
+        <key column="clientid"/>
+        <one-to-many class="com.ideas2it.employeedetails.address.model.Address"/>
+    </bag>
+  </class>
+ </hibernate-mapping>
