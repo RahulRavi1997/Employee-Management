@@ -34,18 +34,18 @@ public final class DateUtil {
      * @return Integer an Integer datatype containing the calculated age from
      *                 the given input Date.
      */
-    public static Integer getDateDifference(final Date inputDate) {
+    public static Integer getYearDifference(final Date inputDate) {
 
         if (null == inputDate) {
             return null;
         }
-        Integer birthYear = LocalDate.parse(new SimpleDateFormat(
+        Integer inputYear = LocalDate.parse(new SimpleDateFormat(
             Constants.REVERSED_DATE_FORMAT).format(inputDate)).getYear();
         Integer currentYear = LocalDate.parse(new SimpleDateFormat(Constants
             .REVERSED_DATE_FORMAT).format(Calendar.getInstance().getTime())).getYear();
-        if ((currentYear - birthYear) < 0) {
+        if ((currentYear - inputYear) < 0) {
             return null;
         }
-        return (currentYear - birthYear);
+        return (currentYear - inputYear);
     }
 }

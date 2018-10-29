@@ -233,7 +233,6 @@ public final class Constants {
     public static final String NO_SUCH_OPERATION = "No such Url! Try again Later";
     public static final String HTML_TYPE = "text/html";
     public static final String PASSWORD = "password";
-    public static final String CONFIRM_PASSWORD = "confirmPassword";
     public static final String LOGIN_FAIL_MESSAGE = "Invalid Email or Password";
     public static final String LOGIN_FAIL = "loginFail";
     public static final String MAIN_MENU_JSP = "main_menu";

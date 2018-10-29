@@ -18,8 +18,6 @@ Employee Management
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
       <link rel="stylesheet" href="styles/index.css">
 </head>
-<style>
-</style>
 <body>
   <div class="form">
       <h1 align="center">Employee Management</h1>

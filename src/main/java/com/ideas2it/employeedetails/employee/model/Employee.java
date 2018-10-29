@@ -129,7 +129,7 @@ public class Employee {
      * @return int an Int indicating the age of an employee is returned.
      */
     public Integer getAge() {
-        return DateUtil.getDateDifference(this.birthDate);
+        return DateUtil.getYearDifference(this.birthDate);
     }
 
     /**

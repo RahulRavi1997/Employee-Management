@@ -246,4 +246,40 @@ public class GenericDao {
             close(session);
         }
     }
+
+
+    /**
+     * This Method is used to obtain all objects in a certain class type
+     * based on the value of its attribute.
+     *
+     * @param type the Type of class from which the query is made.
+     *
+     * @param attributeName a String indicating the name of the property to be
+     *                      evaluated.
+     *
+     * @param attributeValue an Object indicating the value to be compared in
+     *                       the database.
+     * @return List<T> a list of objects from the database that are from the
+     *                 given class type.
+     *
+     * @throws ApplicationException A Custom Exception created for catching
+     *                              Hibernate exceptions that occur while
+     *                              obtaining a table from the database.
+     */
+    public static <T> List<T> getAllByAttribute(final Class<T> type, final String attributeName,
+            final Object attributeValue) throws ApplicationException {
+
+        Session session = null;
+        try {
+            session = getSession();
+            final Criteria criteria = session.createCriteria(type);
+            criteria.add(Restrictions.eq(attributeName, attributeValue));
+            return criteria.list();
+        } catch (HibernateException e) {
+            Logger.debug(e);
+            throw new ApplicationException(e);
+        } finally {
+            close(session);
+        }
+    }
 }
